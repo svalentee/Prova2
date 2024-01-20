@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <button id="bottone">Estrai</button>
+    <p id="demo"></p>
+    <script>
+        let numeri = [];
+        let estratti = [];
+
+        for (let i = 1; i < 91; i++) {
+            numeri[i] = "...";
+            document.getElementById("demo").innerHTML += " " + numeri[i] + " ";
+            if (i % 10 == 0) document.getElementById("demo").innerHTML += "<br>";
+        }
+
+        document.getElementById("bottone").addEventListener("click", function estrai() {
+            let i;
+            do {
+                i = Math.floor(Math.random() * 90) + 1;
+            } while (estratti.includes(i));
+            estratti.push(i);
+            numeri[i] = i;
+            document.getElementById("demo").innerHTML = "";
+            for (let j = 1; j < 91; j++) {
+                document.getElementById("demo").innerHTML += " " + numeri[j] + " ";
+                if (j % 10 == 0) document.getElementById("demo").innerHTML += "<br>";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
